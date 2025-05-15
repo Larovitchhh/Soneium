@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract SONYToken is ERC20, ERC20Burnable, Ownable {
+    // Total supply of $SONY tokens (e.g., 1 billion tokens with 18 decimals)
+    uint256 private constant INITIAL_SUPPLY = 1_000_000_000 * 10**18;
+
+    constructor(address initialOwner) 
+        ERC20("$SONY", "SONY") 
+        Ownable(initialOwner)
+    {
+        _mint(initialOwner, INITIAL_SUPPLY);
+    }
+
+    // Optional: Function to mint additional tokens (only owner)
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+
+    // Optional: Override decimals (default is 18, but you can customize)
+    function decimals() public view virtual override returns (uint8) {
+        return 18;
+    }
+}
