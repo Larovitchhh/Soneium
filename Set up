@@ -1,0 +1,13 @@
+# Soneium Chain Setup
+
+This guide explains how to set up a development environment for the Soneium Chain.
+
+## Prerequisites
+- Node.js (>= 16.x)
+- Hardhat or Truffle (for smart contract development)
+- Metamask (for wallet integration)
+
+## Steps
+1. **Install dependencies**:
+   ```bash
+   npm install
